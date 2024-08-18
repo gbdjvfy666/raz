@@ -1,11 +1,20 @@
 module.exports = {
+  entry: '/index.js',
   output: {
-    filename: 'my-first-webpack.bundle.js'
-  },
-  module: {
-    rules: [
-      { test: /\.css$/,
-       use: ['style-loader', 'css-loader'] }
-    ]
-  }
+ filename: 'main.js'
+},
+plugins: [
+ new HtmlWebpackPlugin({template: '/index.pug'})
+],
+module: {
+ rules: [
+     {
+     test: /\.pug$/,
+     loader: 'pug-loader',
+     options: {
+     pretty: true
+     }
+   }
+ ]
+}
 };
